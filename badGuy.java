@@ -1,3 +1,4 @@
+//this is the bad guy class
 public abstract class badGuy
 {
    //Items items;
