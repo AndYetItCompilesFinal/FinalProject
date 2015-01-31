@@ -6,7 +6,6 @@ This is the hero vs monster final project. We are using Disney characters as our
 
 Still Needs: 
  - Main  (Mary)
- - Party (Zoe)
  - Items/Weapons (Nick)
  - Some kind of GUI 
  - Way to generate numbers for varied attack damage (Zoe has an idea for it)

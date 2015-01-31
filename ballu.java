@@ -1,6 +1,6 @@
-public class ballu extends goodGuy
+public class Ballu extends GoodGuy
 {
-   public ballu()
+   public Ballu()
    {
       //items=new
       //attack=new
@@ -10,9 +10,9 @@ public class ballu extends goodGuy
       spd = 3;
    }
    
-   public void display()
+   public String toString()
    {
-      System.out.println("Ballu");
+      return("Ballu");
    }
 
    public int attack1(){

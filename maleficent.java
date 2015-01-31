@@ -1,6 +1,6 @@
-public class maleficent extends badGuy
+public class Maleficent extends BadGuy
 {
-   public maleficent()
+   public Maleficent()
    {
       //items=new
       //attacks=new
@@ -10,9 +10,9 @@ public class maleficent extends badGuy
       spd = 4;
    }
    
-   public void display()
+   public String toString()
    {
-      System.out.println("Maleficent");
+      return("Maleficent");
    }
    
    public int attack1(){

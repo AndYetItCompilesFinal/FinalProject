@@ -1,6 +1,6 @@
-public class gaston extends badGuy
+public class Gaston extends BadGuy
 {
-   public gaston()
+   public Gaston()
    {
       //items=new
       //attacks=new
@@ -10,9 +10,9 @@ public class gaston extends badGuy
       spd = 3;
    }
    
-   public void display()
+   public String toString()
    {
-      System.out.println("Gaston");
+      return("Gaston");
    }
    
    public int attack1(){
@@ -29,8 +29,4 @@ public class gaston extends badGuy
       System.out.println("Gaston kicked you!");
       return 7;
    }
-
-   
-   
-
 }//end class

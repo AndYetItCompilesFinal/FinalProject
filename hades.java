@@ -1,6 +1,6 @@
-public class hades extends badGuy
+public class Hades extends BadGuy
 {
-   public hades()
+   public Hades()
    {
       //items=new
       //attacks=new
@@ -9,9 +9,8 @@ public class hades extends badGuy
       def = .2;
       spd = 4;
    }
-   public void display()
-   {
-      System.out.println("Hades");
+   public String toString(){
+      return("Hades");
    }
    
    public int attack1(){

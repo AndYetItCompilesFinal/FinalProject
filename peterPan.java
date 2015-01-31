@@ -1,6 +1,6 @@
-public class peterPan extends goodGuy
+public class PeterPan extends GoodGuy
 {
-   public peterPan()
+   public PeterPan()
    {
       //items=new
       //attack=new
@@ -9,9 +9,9 @@ public class peterPan extends goodGuy
       def = .25;
       spd = 4;
    }
-   public void display()
+   public String toString()
    {
-      System.out.println("Peter Pan");
+      return("Peter Pan");
    }
    
    public int attack1(){

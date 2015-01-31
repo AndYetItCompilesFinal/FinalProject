@@ -1,5 +1,4 @@
-//this is the bad guy class
-public abstract class badGuy
+public abstract class BadGuy
 {
    //Items items;
    //Attack attack;
@@ -9,11 +8,11 @@ public abstract class badGuy
    double def;
    int spd;
    
-   public badGuy()
+   public BadGuy()
    {
    
    }
-   public abstract void display();
+   public abstract void toString();
    public void chooseItem()
    {
       //items.item();

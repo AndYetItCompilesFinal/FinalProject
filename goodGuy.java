@@ -1,4 +1,4 @@
-public abstract class goodGuy
+public abstract class GoodGuy
 {
    //Items items;
    //Attack attack;
@@ -8,11 +8,11 @@ public abstract class goodGuy
    double def;
    int spd;
    
-   public goodGuy()
+   public GoodGuy()
    {
       
    }
-   public abstract void display();
+   public abstract void toString();
    public void chooseItem()
    {
       //items.item();
