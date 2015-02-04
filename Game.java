@@ -1,4 +1,4 @@
-   import java.util.* ;
+  import java.util.* ;
    public class Game
    {
       
@@ -6,14 +6,23 @@
       public static void main(String[] args)
       {
          boolean win=false;
-         Characters characters=new Characters();
+         List<String> list = new ArrayList<String>(Arrays.asList("Peter Pan","Mushu","Ballu"));
+         LinkedList characters=new LinkedList(list);
          
-         GoodGuy mainCharacter=chooseGoodGuy(characters);
+         Scanner kb= new Scanner(System.in);
+         System.out.println("Choose Your Character:");
+         GoodGuy mainCharacter=chooseGoodGuy(characters,kb,list);
          //new party
-         GoodGuy party1=chooseParty(characters);
-         GoodGuy party2=chooseParty(characters);
-         
-         printStory(mainCharacter);
+         System.out.println("Choose A Party Member:");
+         GoodGuy party1=chooseGoodGuy(characters,kb,list);
+         System.out.println("Choose A Party Member:");
+         GoodGuy party2=chooseGoodGuy(characters,kb,list);
+         Party party=new Party(mainCharacter,party1,party2);
+         //printStory(mainCharacter);
+         //make the map
+         Map map=new Map();
+      	Move move=new Move(map.map);
+      	System.out.println(map.toString());
       
       
       //maybe have the user pick magic, attack, or defense as their main choice
@@ -24,99 +33,59 @@
       
    	
    	
-   	
-   	
-   	
-      public static GoodGuy chooseGoodGuy(Characters characters)
+      public static GoodGuy chooseGoodGuy(LinkedList characters, Scanner kb, List<String> list)
       {
          int choice;
-         GoodGuy mainCharacter;
-         Scanner kb= new Scanner(System.in);
-         do{
-            System.out.println("Choose Your Character:");
-            System.out.println("1) Peter Pan");
-            System.out.println("2) Mushu");
-            System.out.println("3) Ballu");
-            System.out.print("Choice-->");
-            choice=getChoice(kb);
-         }while(choice<1 || choice>3);
-         if(choice==1)
-         {
-            mainCharacter= new PeterPan();
-            characters.charlist.remove(0);
-         }
-         else if(choice==2)
-         {
-            mainCharacter= new Mushu();
-            characters.charlist.remove(1);
-         }
-         else
-         {
-            mainCharacter= new Ballu();
-            characters.charlist.remove(2);
-            
-         }
-         return mainCharacter;
-      }//end of chooseCharacter
-   	
-   	
-   	
-      public static GoodGuy chooseParty(Characters characters)
-      {
-         int choice;
-         int available=characters.charlist.size();
+         int available=characters.size();
          GoodGuy party;
          String name;
-         Scanner kb= new Scanner(System.in);
          do{
-            System.out.println("Choose A Party Member:");
+         	//Gives user the character choices
             for(int i=0;i<available;i++)
             {
-               System.out.println((i+1)+") "+characters.charlist.get(i));
+               System.out.println((i+1)+") "+characters.get(i));
             }
-            choice=getChoice(kb);
+            System.out.print("Choice-->");
+            choice=kb.nextInt();
+            kb.nextLine();
+            System.out.println();
+            //checks for invalid choice
+            if (choice<1 || choice>available)
+            {
+               System.out.println("I am sorry that is an invalid menu choice.");
+               System.out.println("Please try again");
+               System.out.println();
+            }
             
          }while(choice<1 || choice>available);
-         name=(characters.charlist.get(choice-1)).toString();
+         
+         name=(characters.get(choice-1)).toString();
          System.out.println(name);
-         if("Ballu".equals(name))
+         //creates the character chosen
+         if("Peter Pan".equals(name))
          {
             party=new PeterPan();
-            characters.charlist.remove("Peter Pan");
+            characters.remove("Peter Pan");
             
          }
          else if("Mushu".equals(name))
          {
             party=new Mushu();
-            characters.charlist.remove("Mushu");
+            characters.remove("Mushu");
             
          }
          else
          {
             party=new Ballu();
-            characters.charlist.remove("Ballu");
-            
+            characters.remove("Ballu");  
          }
          return party;
       }
-      
-   	
+      	
       public static void printStory(GoodGuy main)
       {
          System.out.println("Story");
       }
-      public static int getChoice(Scanner kb)
-      {
-         int choice=kb.nextInt();
-         kb.nextLine();
-         System.out.println();
-         if (choice<1 || choice>3)
-         {
-            System.out.println("I am sorry that is an invalid menu choice.");
-            System.out.println("Please try again");
-            System.out.println();
-         }
-         return choice;
-      }
+      
    }
    
