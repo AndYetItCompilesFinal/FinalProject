@@ -1,40 +1,68 @@
-public class Room
-{ 
-   public int numOfItems=0;
-   public String itemType;
-   //public boolean hasHealthPotion=false;
-   //public boolean hasVisionPotion=false;
-   //public boolean hasTrap=false;
-   public boolean hasBadGuy=false;
-
-   public int locationRow;
-   public int locationCol;
-   public Room(int locationRow, int locationCol)
-   {
+   public class Room
+   { 
+      public int numOfItems=0;
+      public String itemType;
+      public boolean hasBadGuy=false;
    
-      this.locationRow=locationRow;
-      this.locationCol=locationCol;
-   }
-   public String getItemType()
-   {
-      return this.itemType;
-   }//end of method
-		
-   // public boolean getHasHealthPotion()
-   // {
-      // return this.hasHealthPotion;
-   // }//end of method
-	
-   public boolean getBadGuy()
-   {
-      return this.hasBadGuy;
-   }//end of method  
+      public int locationRow;
+      public int locationCol;
+      public Room(String itemType, int locationRow, int locationCol)
+      {
+      	this.itemType=itemType;
+         this.locationRow=locationRow;
+         this.locationCol=locationCol;
+      }
+      public String getItemType()
+      {
+         return this.itemType;
+      }//end of method
+   	
+      public boolean getBadGuy()
+      {
+         return this.hasBadGuy;
+      }//end of method  
    
-   //find item type()
-  //  public boolean random()
-//       {
-//          Random random= new Random();
-//          return random.nextInt(10)==0;
-//       }//end of method
+      public String toString()
+      {
+         String room;
+         if (locationRow!=0)
+         {
+            room= "*-*";
+         }
+         else
+         {
+            room= "***";
+         }
+         if (locationCol!=0)
+         {
+            room=room+"\n|"+this.itemType;
+         }
+         else
+         {
+            room=room+"\n*"+this.itemType;
+         }
+         if (locationCol!=4)
+         {
+            room=room+"|\n";
+         }
+         else
+         {
+            room=room+"*\n";
+         }
+         if(locationRow!=4)
+         {
+            room=room+"*-*";
+         }
+         else
+         {
+            room=room+"***";
+         }
+         return room;
+      }//end of method
    
-}
+   
+   
+   
+   
+   
+   }//end of class
