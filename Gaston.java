@@ -29,4 +29,11 @@ public class Gaston extends BadGuy
       System.out.println("Gaston kicked you!");
       return 7;
    }
+   
+   public boolean attackItem()
+   {
+      System.out.println("Gaston is now using his bow and arrows as his weapon of choice.");
+      return true;  
+   }
+
 }//end class

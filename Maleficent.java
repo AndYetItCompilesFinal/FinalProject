@@ -29,6 +29,13 @@ public class Maleficent extends BadGuy
       System.out.println("Maleficent turned into a dragon and smacked you with her tail!");
       return 15;
    }
+   
+   public boolean attackItem()
+   {
+      System.out.println("Maleficent is now using her staff as her weapon of choice.");
+      return true;  
+   }
+
 
    
 }//end class

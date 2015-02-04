@@ -29,5 +29,13 @@ public class Ballu extends GoodGuy
       System.out.println("Ballu grappled them in a bear hug!");
       return 10;
    }
+   
+   public boolean attackItem()
+   {
+      System.out.println("Ballu is now using a coconut as his weapon of choice.");
+      return true;  
+   }
+   
+   
 
 }//end of class

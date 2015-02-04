@@ -28,5 +28,12 @@ public class PeterPan extends GoodGuy
       System.out.println("Peter Pan's shadow attacked!");
       return 6;
    }
+   
+   public boolean attackItem()
+   {
+      System.out.println("Peter Pan is now using his sword as his weapon of choice.");
+      return true;  
+   }
+
 
 }

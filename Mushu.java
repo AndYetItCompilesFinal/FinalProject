@@ -29,6 +29,13 @@ public class Mushu extends GoodGuy
       System.out.println("Mushu bit them!");
       return 3;
    }
+   
+   public boolean attackItem()
+   {
+      System.out.println("Mushu is now using his attack powers.");
+      return true;  
+   }
+
 
 
 }//end of class
