@@ -1,120 +1,81 @@
- import java.util.* ;
-   public class Move
+   import java.util.*;
+   public class Map
    {
-      int currentRow;
-      int currentCol;
-      Room[][] map;
-   	
-      public Move(Room[][] map)
+      public Room[][] map;
+      public Map()
       {
-         this.map=map;
-         findEntrance();//gets starting position
+         this.map= new Room[5][5];
+         initialize();
       }
-      
-   
-      public void findEntrance()
+		
+      public void initialize()
       {
-         for(int row=0;row<map.length;row++)
+         entrance();
+         exit();
+         for (int row=0;row<map.length;row++)
          {
             for(int col=0;col<map[row].length;col++)
             {
-               if(this.map[row][col].getItemType().compareTo("I")==0)
+               if (this.map[row][col]==null)
                {
-                  this.currentRow=row;
-                  this.currentCol=col;
-               }//end of if
-            }//end of inner for loop
-         }//end of outer for loop
-      }//end of method
-      
-      public void changeDirction()
-      {int choice;
-         Scanner kb=new Scanner(System.in);
+                  this.map[row][col]=new Room("E",row,col);
+               }
+            }//inner for loop
          
-         do{
-            System.out.println("Which direction would you like to go:");
-            System.out.println("1.North");
-            System.out.println("2.South");
-            System.out.println("3.East");
-            System.out.println("4.West");
-            System.out.println("5.Go back to main menu");
-            System.out.println();		  	
-               
-               
-            System.out.print("Choice-->");
-            choice=kb.nextInt();
-            kb.nextLine();
-            System.out.println();
-               
-            if (choice<1 || choice>5)
-            {
-               System.out.println("I am sorry that is an invalid menu choice.");
-               System.out.println("Please try again");
-               System.out.println();
-            }
-               
-         }
-               while (choice<1 || choice>5);
-            
-         switch (choice)
+         }//outer for loop
+      
+      }
+		
+      public void entrance()
+      {
+         int row=random();
+         int col=random();
+         this.map[row][col]=new Room("I",row,col);
+      }
+      public void exit()
+      {
+         int row=random();
+         int col=random();
+         while(this.map[row][col]!=null)
          {
-            case 1: 
-               if (currentRow>0)
-               {
-                  moveNorth();
-               }
-               else
-                  System.out.println("Cannot move north");
-               break;
-            case 2:
-               if (currentRow<4)
-               {
-               	moveSouth();
-               }
-               else
-                  System.out.println("Cannot move south");
-               break;
-            case 3:
-               if (currentCol<4)
-               {
-                  moveEast();
-               }
-               else
-                  System.out.println("Cannot move east");
-               break;
-            case 4: 
-               if (currentCol>0)
-               {
-                  moveWest();
-               }
-               else
-                  System.out.println("Cannot move west");
-               break;
-            default:
-               kb.nextLine();
+            row=random();
+            col=random();
          }
+         this.map[row][col]=new Room("O",row,col);
+      }
+      public int random()
+      {
+         Random random= new Random();
+         return random.nextInt(5);
+      }//end of method
+      public String toString()
+      {
+         String result="***********";
+         for (int row=0;row<this.map.length;row++)
+         {
+            result=result+"\n*";
+            for(int col=0;col<this.map[row].length;col++)
+            {
+               if(col<map[row].length-1)
+               {
+                  result=result+this.map[row][col].itemType()+"|";
+               }
+               else
+                  result=result+this.map[row][col].itemType()+"*";
+            }//end of first inner for loop
+            result=result+"\n*";
+            for(int col2=0;col2<this.map[row].length;col2++)
+            {	
+               if(row<4)
+               {
+                  result=result+"-*";
+               }
+            }//end of second inner for loop
+         }//end of outer for loop
+         result=result+"**********";
+      	
+         return result;
       
       }//end of method
-      
-      public void moveEast()
-      {
-         this.currentCol++;
-      }
-   	
-      public void moveWest()
-      {
-         this.currentCol--;  
-      }
-   	
-      public void moveSouth()
-      {
-         this.currentRow++; 
-      }
-   	
-      public void moveNorth()
-      {
-         this.currentRow--;   
-      }
-   	
-   	
-   }//end of class
+   
+   }
