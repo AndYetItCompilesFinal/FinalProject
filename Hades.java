@@ -28,12 +28,7 @@ public class Hades extends BadGuy
       return 0;
    }
    
-   public boolean attackItem()
-   {
-      System.out.println("Hades is now using his attack powers.");
-      return true;  
-   }
-
+   
 
 
 }//end of class

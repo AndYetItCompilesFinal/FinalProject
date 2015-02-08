@@ -30,11 +30,7 @@ public class Maleficent extends BadGuy
       return 15;
    }
    
-   public boolean attackItem()
-   {
-      System.out.println("Maleficent is now using her staff as her weapon of choice.");
-      return true;  
-   }
+  
 
 
    
