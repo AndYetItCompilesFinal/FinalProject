@@ -22,6 +22,7 @@
          //make the map
          Map map=new Map();
       	Move move=new Move(map.map);
+			GameOptions run= new GameOptions(move);
       	System.out.println(map.toString());
       
       
