@@ -1,4 +1,4 @@
-  import java.util.*;
+    import java.util.*;
    public class Map
    {
       public Room[][] map;
@@ -7,6 +7,7 @@
          this.map= new Room[5][5];
          initialize();
       }
+		
       public void initialize()
       {
          entrance();
@@ -24,6 +25,7 @@
          }//outer for loop
       
       }
+		
       public void entrance()
       {
          int row=random();
@@ -56,10 +58,10 @@
             {
                if(col<map[row].length-1)
                {
-                  result=result+this.map[row][col].getItemType()+"|";
+                  result=result+this.map[row][col].itemType()+"|";
                }
                else
-                  result=result+this.map[row][col].getItemType()+"*";
+                  result=result+this.map[row][col].itemType()+"*";
             }//end of first inner for loop
             result=result+"\n*";
             for(int col2=0;col2<this.map[row].length;col2++)
