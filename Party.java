@@ -15,6 +15,7 @@ public class Party {
    public void setParty(GoodGuy hero, int index){
       //party[index].goodBye();
       party[index] = hero;
+      //party[index].hello();
    }
    
    public String toString(){
@@ -22,5 +23,19 @@ public class Party {
 	  return str;
    }
    
-   // defeated();
+   //returns a true if party is defeated
+   public boolean defeated(){
+      boolean gameOver;
+      if(party[0].hp >= 0){
+         gameOver = false;
+      }else if(party[1].hp >=0){
+         gameOver = false
+      }else if(party[2].hp >= 0){
+         gameOver = false;
+      }else{
+         gameOver = true;
+      }
+      return alive;
+   }
+      
 }
