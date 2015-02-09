@@ -8,7 +8,6 @@ Still Needs:
  - Main (ongoing)  (Mary)
  - 1. Items/Weapons (List of available items/ non unique) (Nick) [ASAP]
  - 5. Some kind of GUI 
- - 1. Way to generate numbers for varied attack damage (Zoe has an idea for it)
  - 1. Room/Map (Mary) [SATURDAY]
  - 1. Move (Zoe) [DO BY SATURDAY]
  - 2. BATTLE PHASE [DO BY SATURDAY]
