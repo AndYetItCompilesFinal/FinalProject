@@ -29,13 +29,6 @@ public class Move
        
    public void executeRoom()
    {
-      //check what items are in the room
-         //if item
-            //would you like to use or put in backpack
-         //if bad guy
-            //battle
-         //if weapon
-            //would you like to use/put in backpack
       String temp;
       int choice;
       Scanner kb=new Scanner(System.in);
@@ -45,50 +38,79 @@ public class Move
          if(temp.equals("H"))
          {
             do{
-            System.out.println("You have found a health potion");
-            System.out.println("What would you like to do:");
-            System.out.println("1. Use it");
-            System.out.println("2. Put it in your backpack");
-            System.out.println();		  	
+               System.out.println("You have found a health potion");
+               System.out.println("What would you like to do:");
+               System.out.println("1. Use it");
+               System.out.println("2. Put it in your backpack");
+               System.out.println("3. Leave in room");	
+               System.out.println();		  	
                 
                 
-            System.out.print("Choice-->");
-            choice=kb.nextInt();
-            kb.nextLine();
-            System.out.println();
-             if (choice<1 || choice>5)
-         {
-            System.out.println("I am sorry that is an invalid menu choice.");
-            System.out.println("Please try again");
-            System.out.println();
-         }//end of if
+               System.out.print("Choice-->");
+               choice=kb.nextInt();
+               kb.nextLine();
+               System.out.println();
+               if (choice<1 || choice>3)
+               {
+                  System.out.println("I am sorry that is an invalid menu choice.");
+                  System.out.println("Please try again");
+                  System.out.println();
+               }//end of if
             
-            }while(choice<1 || choice>2);
+            }while(choice<1 || choice>3);
+            switch (choice)
+            {
+               case 1: 
+                  //new health potion
+                  //use potion
+                  break;
+               case 2:
+                  //new health potion
+                  //backpack.add(health potion);
+                  break;
+               default:
+                  kb.nextLine();
+            }//end of switch
          
          }//end of if
          if(temp.equals("W"))
          {
             System.out.println("You have found a weapon");
             do{
-            System.out.println("What would you like to do:");
-            System.out.println("1. Use it");
-            System.out.println("2. Put it in your backpack");
-            System.out.println();		  	
+               System.out.println("What would you like to do:");
+               System.out.println("1. Put it in your backpack");
+               System.out.println("2. Leave in room");	
+               System.out.println();		  	
                 
                 
-            System.out.print("Choice-->");
-            choice=kb.nextInt();
-            kb.nextLine();
-            System.out.println();
-             if (choice<1 || choice>5)
-         {
-            System.out.println("I am sorry that is an invalid menu choice.");
-            System.out.println("Please try again");
-            System.out.println();
-         }
+               System.out.print("Choice-->");
+               choice=kb.nextInt();
+               kb.nextLine();
+               System.out.println();
+               if (choice<1 || choice>2)
+               {
+                  System.out.println("I am sorry that is an invalid menu choice.");
+                  System.out.println("Please try again");
+                  System.out.println();
+               }
             }while(choice<1 || choice>2);
-         
-         }
+                    
+            switch (choice)
+            {
+               case 1: 
+                     //new weapon
+                     //backpack.add(weapon)
+                     //delete weapon from room
+                  map[currentRow][currentCol].items.remove("W");
+                  if(map[currentRow][currentCol].items.size()==0)
+                  {
+                     map[currentRow][currentCol].items.add("E");
+                  }
+                  break;
+               default:
+                  kb.nextLine();
+            }//end of switch
+         }//end of if
          if(temp.equals("B"))
          {
             System.out.println("There is a bad guy in the room!!");
@@ -103,7 +125,7 @@ public class Move
        
        
        
-   }//end of class
+   }//end
        
    public void changeDirection()
    {int choice;
