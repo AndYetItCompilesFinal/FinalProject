@@ -2,7 +2,7 @@ import java.lang.Math;
 import java.util.Scanner;
 
 public class BattlePhase{
-   public boolean startBattle(Party[] party, BadGuy[] enemy){
+   public boolean startBattle(Party[] party, BadGuy enemy){
       boolean victory;
       
       while(party.defeated() !=true || enemies.defeated() != true){
@@ -14,27 +14,16 @@ public class BattlePhase{
             if(choice == 1){
                int baseAttack;
                int damage;
-               int attackChosen;
-               attackChosen = chooseAttack();
-               if(attackChosen == 1){
-                  baseAttack = party[i].attack1();
-               }else if(attackChosen == 2){
-                  baseAttack = party[i].attack2();
-               }else{
-                  baseAttack = party[i].attack3();
-               }
+               baseAttack = p[i].chooseAttack();
                damage = damage(party[i].getStr(), baseAttack);
                execute(enemy, damage);
             }else{
                //use an item
             }
          }
-         villanTurn();
+         villanTurn(enemy, party);
         
       }
-      //needs to determine battle order, probable with array of speed
-      //needs to have a way for the user to pick their attacks
-      //needs to generate damage and have it apply to enemy if attack hits
       //enemy need to determine who to attack and generate damage. Apply if no dodge
       //continue until party is defeated or enemies are defeated
       if(party.defeated() == true){
@@ -98,8 +87,20 @@ public class BattlePhase{
       }
    }
    
-   
-   
+   public static void villanTurn(BadGuy enemy){
+      int baseAttack;
+      int damage;
+      baseAttack = enemy.chooseAttack;
+      damage = damage(enemy.getStr(), baseAttack);
+      int choice = ((int)(Math.random() * (3 - 1)));
+      if(dodge(party[choice]) = true){
+         System.out.println("They dodged the attack.");
+      }else{
+         System.out.println(party[choice].toString() + " was hit with the attack for a total of " + damage + " damage!");
+         party[choice].setHp() = party[choice].getHp() - damage;
+      } 
+   }
+            
    
    
 }

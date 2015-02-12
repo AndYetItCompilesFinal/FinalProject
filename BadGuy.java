@@ -1,7 +1,6 @@
 public abstract class BadGuy
 {
    //Items items;
-   //Attack attack;
    int maxhp;
    int hp;
    int str;
@@ -10,16 +9,25 @@ public abstract class BadGuy
    
    public BadGuy()
    {
-   
+      
    }
    public abstract String toString();
    public void chooseItem()
    {
       //items.item();
    }
-   public void chooseAttack()
+   public int chooseAttack()
    {
-      //attack.attack();
+      int choice = ((int)(Math.random() * (3 - 1) + 1));
+      if(attackChosen == 1){
+         baseAttack = party[i].attack1();
+      }else if(attackChosen == 2){
+         baseAttack = party[i].attack2();
+      }else{
+         baseAttack = party[i].attack3();
+      }
+      return baseAttack;
+
    }
    
    public abstract int attack1();
