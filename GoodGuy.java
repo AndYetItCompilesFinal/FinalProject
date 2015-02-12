@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public abstract class GoodGuy
 {
    //Items items;
@@ -18,21 +20,22 @@ public abstract class GoodGuy
    }
    public int chooseAttack()
    {
-      System.out.println("Choose your Attack!");
-      System.out.println("1.Attack 1.");
-      System.out.println("2.Attack 2.");
-      System.out.println("3.Attack 3.");
-      Scanner sc = new Scanner(System.in);
-      System.out.println("Enter number now: ");
-      int attackChosen = sc.nextInt();
-      if(attackChosen == 1){
-         baseAttack = party[i].attack1();
-      }else if(attackChosen == 2){
-         baseAttack = party[i].attack2();
-      }else{
-         baseAttack = party[i].attack3();
-      }
-      return baseAttack;
+       System.out.println("Choose your Attack!");
+       System.out.println("1.Attack 1.");
+       System.out.println("2.Attack 2.");
+       System.out.println("3.Attack 3.");
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter number now: ");
+       int attackChosen = sc.nextInt();
+       int baseAttack;
+       if(attackChosen == 1){
+          baseAttack = attack1();
+       }else if(attackChosen == 2){
+          baseAttack = attack2();
+       }else{
+          baseAttack = attack3();
+       }
+       return baseAttack;
    }
    
    public abstract int attack1();

@@ -11,21 +11,24 @@ public abstract class BadGuy
    {
       
    }
+
    public abstract String toString();
+
    public void chooseItem()
    {
       //items.item();
    }
-   public int chooseAttack(GoodGuy[] party)
+
+   public int chooseAttack()
    {
 	  int baseAttack;
       int choice = ((int)(Math.random() * (3 - 1) + 1));
       if(choice == 1){
-         baseAttack = party[i].attack1();
+         baseAttack = attack1();
       }else if(choice == 2){
-         baseAttack = party[i].attack2();
+         baseAttack = attack2();
       }else{
-         baseAttack = party[i].attack3();
+         baseAttack = attack3();
       }
       return baseAttack;
 
