@@ -16,12 +16,13 @@ public abstract class BadGuy
    {
       //items.item();
    }
-   public int chooseAttack()
+   public int chooseAttack(GoodGuy[] party)
    {
+	  int baseAttack;
       int choice = ((int)(Math.random() * (3 - 1) + 1));
-      if(attackChosen == 1){
+      if(choice == 1){
          baseAttack = party[i].attack1();
-      }else if(attackChosen == 2){
+      }else if(choice == 2){
          baseAttack = party[i].attack2();
       }else{
          baseAttack = party[i].attack3();

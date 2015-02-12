@@ -35,7 +35,7 @@ public class Party {
       }else{
          gameOver = true;
       }
-      return alive;
+      return gameOver;
    }
       
 }
