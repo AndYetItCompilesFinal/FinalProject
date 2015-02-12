@@ -29,7 +29,7 @@ public class Party {
       if(party[0].hp >= 0){
          gameOver = false;
       }else if(party[1].hp >=0){
-         gameOver = false
+         gameOver = false;
       }else if(party[2].hp >= 0){
          gameOver = false;
       }else{
