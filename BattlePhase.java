@@ -2,31 +2,31 @@ import java.lang.Math;
 import java.util.Scanner;
 
 public class BattlePhase{
-   public boolean startBattle(Party[] party, BadGuy enemy){
+   public boolean startBattle(Party party, BadGuy enemy){
       boolean victory;
       
-      while(party.defeated() !=true || enemies.defeated() != true){
+      while(party.defeated() !=true || enemy.getHp() <= 0){
          int choice;
          int attack;
          for(int i=0; i < 3 ;i++){
-            System.out.println("It is " + party[i].toString() + " turn.");
+            System.out.println("It is " + (party.getParty(i)).toString() + " turn.");
             choice = displayMenu();
             if(choice == 1){
                int baseAttack;
                int damage;
-               baseAttack = p[i].chooseAttack();
-               damage = damage(party[i].getStr(), baseAttack);
-               execute(enemy, damage);
+               baseAttack = (party.getParty(i)).chooseAttack();
+               damage = damage((party.getParty(i)).getStr(), baseAttack);
+                execute(enemy, damage);
             }else{
                //use an item
             }
          }
-         villanTurn(enemy, party);
+         villanTurn(party, enemy);
         
       }
       //enemy need to determine who to attack and generate damage. Apply if no dodge
       //continue until party is defeated or enemies are defeated
-      if(party.defeated() == true){
+      if(party.defeated()){
          System.out.println("Your party was defeated.");
          return false;
       }else{
@@ -77,9 +77,9 @@ public class BattlePhase{
       return attack;
    }
    
-   public static void excecute(BadGuy[] enemy, int damage){
+   public static void execute(BadGuy enemy, int damage){
       boolean dodgeSuccess = dodge(enemy.getDef());
-      if (dodgeSuccess == true){
+      if (dodgeSuccess){
          System.out.println(enemy.toString() + " managed to dodge the attack!");
       }else{
          //do damage
@@ -87,17 +87,17 @@ public class BattlePhase{
       }
    }
    
-   public static void villanTurn(BadGuy enemy){
+   public static void villanTurn(Party party, BadGuy enemy){
       int baseAttack;
       int damage;
-      baseAttack = enemy.chooseAttack;
+      baseAttack = enemy.chooseAttack();
       damage = damage(enemy.getStr(), baseAttack);
       int choice = ((int)(Math.random() * (3 - 1)));
-      if(dodge(party[choice]) = true){
+      if(dodge((party.getParty(choice)).getDef())){
          System.out.println("They dodged the attack.");
       }else{
-         System.out.println(party[choice].toString() + " was hit with the attack for a total of " + damage + " damage!");
-         party[choice].setHp() = party[choice].getHp() - damage;
+         System.out.println((party.getParty(choice)).toString() + " was hit with the attack for a total of " + damage + " damage!");
+          (party.getParty(choice)).setHp((party.getParty(choice)).getHp() - damage);
       } 
    }
             
