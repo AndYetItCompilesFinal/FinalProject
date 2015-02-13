@@ -4,10 +4,11 @@ public class Move
    int currentRow;
    int currentCol;
    Room[][] map;
-    	
-   public Move(Room[][] map)
+    Party party;
+   public Move(Room[][] map,Party party)
    {
       this.map=map;
+       this.party=party;
       findEntrance();//gets starting position
    }
        
@@ -113,8 +114,9 @@ public class Move
          }//end of if
          if(temp.equals("B"))
          {
-            System.out.println("There is a bad guy in the room!!");
-            //battle
+             System.out.println("There is a bad guy in the room!!");
+             BadGuy b = new Maleficent();
+             BattlePhase.startBattle(party, b);
          }
          if(temp.equals("E"))
          {

@@ -5,6 +5,7 @@ public class Hades extends BadGuy
       //items=new
       //attacks=new
       maxhp = 100;
+       hp = 100;
       str = 4;
       def = .2;
       spd = 4;

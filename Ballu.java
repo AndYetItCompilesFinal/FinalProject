@@ -3,8 +3,8 @@ public class Ballu extends GoodGuy
    public Ballu()
    {
       //items=new
-      //attack=new
       maxhp = 50;
+       hp = 50;
       str = 4;
       def = .1;
       spd = 3;

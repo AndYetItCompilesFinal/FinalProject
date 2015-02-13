@@ -2,10 +2,10 @@ import java.lang.Math;
 import java.util.Scanner;
 
 public class BattlePhase{
-   public boolean startBattle(Party party, BadGuy enemy){
+   public static boolean startBattle(Party party, BadGuy enemy){
       boolean victory;
       
-      while(party.defeated() !=true || enemy.getHp() <= 0){
+      while(party.defeated() !=true || enemy.getHp() > 0){
          int choice;
          int attack;
          for(int i=0; i < 3 ;i++){
@@ -17,8 +17,12 @@ public class BattlePhase{
                baseAttack = (party.getParty(i)).chooseAttack();
                damage = damage((party.getParty(i)).getStr(), baseAttack);
                 execute(enemy, damage);
+                System.out.println("You hit Maleficent for " + damage + "damage! She is at " + enemy.getHp() + "health.");
             }else{
                //use an item
+                System.out.println((party.getParty(0)).toString() + " has " + (party.getParty(0)).getHp() + " hp left.");
+                System.out.println((party.getParty(1)).toString() + " has " + (party.getParty(1)).getHp() + " hp left.");
+                System.out.println((party.getParty(2)).toString() + " has " + (party.getParty(2)).getHp() + " hp left.");
             }
          }
          villanTurn(party, enemy);
@@ -82,7 +86,7 @@ public class BattlePhase{
       if (dodgeSuccess){
          System.out.println(enemy.toString() + " managed to dodge the attack!");
       }else{
-         //do damage
+         enemy.setHp((enemy.getHp())-damage);
          System.out.println(enemy.toString() + " got hit by the attack.");
       }
    }
@@ -92,7 +96,7 @@ public class BattlePhase{
       int damage;
       baseAttack = enemy.chooseAttack();
       damage = damage(enemy.getStr(), baseAttack);
-      int choice = ((int)(Math.random() * (3 - 1)));
+      int choice = ((int)(Math.random() * ((3 - 1)+1)));
       if(dodge((party.getParty(choice)).getDef())){
          System.out.println("They dodged the attack.");
       }else{

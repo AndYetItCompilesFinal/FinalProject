@@ -22,7 +22,7 @@ public abstract class BadGuy
    public int chooseAttack()
    {
 	  int baseAttack;
-      int choice = ((int)(Math.random() * (3 - 1) + 1));
+       int choice = ((int)(Math.random() * ((3 - 1) + 1)));
       if(choice == 1){
          baseAttack = attack1();
       }else if(choice == 2){

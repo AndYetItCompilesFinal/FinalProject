@@ -5,6 +5,7 @@ public class PeterPan extends GoodGuy
       //items=new
       //attack=new
       maxhp = 40;
+       hp = 40;
       str = 3;
       def = .25;
       spd = 4;

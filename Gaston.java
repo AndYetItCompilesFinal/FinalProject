@@ -5,6 +5,7 @@ public class Gaston extends BadGuy
       //items=new
       //attacks=new
       maxhp = 80;
+       hp = 80;
       str = 4;
       def = .05;
       spd = 3;

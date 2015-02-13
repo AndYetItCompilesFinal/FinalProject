@@ -21,7 +21,8 @@
          //printStory(mainCharacter);
          //make the map
          Map map=new Map();
-      	Move move=new Move(map.map);
+      	Move move=new Move(map.map,party);
+          System.out.println(map.toString());
 			GameOptions run= new GameOptions(move);
       	System.out.println(map.toString());
       

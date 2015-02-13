@@ -5,6 +5,7 @@ public class Mushu extends GoodGuy
       //items=new 
       //attack=new
       maxhp = 30;
+       hp = 30;
       str = 1;
       def = .3;
       spd = 5;
