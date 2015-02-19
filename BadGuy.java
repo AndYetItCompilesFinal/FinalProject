@@ -1,4 +1,4 @@
-public abstract class BadGuy
+public abstract class BadGuy extends RoomDecorator
 {
    //Items items;
    int maxhp;
@@ -7,12 +7,6 @@ public abstract class BadGuy
    double def;
    int spd;
    
-   public BadGuy()
-   {
-      
-   }
-
-   public abstract String toString();
 
    public void chooseItem()
    {
