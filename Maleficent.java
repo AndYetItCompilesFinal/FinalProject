@@ -1,11 +1,15 @@
 public class Maleficent extends BadGuy
 {
+   public Maleficent(Room room)
+   {
+      this();
+      size++;
+      this.room=room;
+   }
    public Maleficent()
    {
-      //items=new
-      //attacks=new
       maxhp = 90;
-       hp = 90;
+      hp = 90;
       str = 5;
       def = .20;
       spd = 4;

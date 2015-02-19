@@ -1,11 +1,15 @@
 public class Hades extends BadGuy
 {
+   public Hades(Room room)
+   {
+      this();
+      size++;
+      this.room=room;
+   }
    public Hades()
    {
-      //items=new
-      //attacks=new
       maxhp = 100;
-       hp = 100;
+      hp = 100;
       str = 4;
       def = .2;
       spd = 4;

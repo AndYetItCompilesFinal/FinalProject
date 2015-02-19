@@ -1,11 +1,15 @@
 public class Gaston extends BadGuy
 {
+   public Gaston(Room room)
+   {
+      this();
+      size++;
+      this.room=room;
+   }
    public Gaston()
    {
-      //items=new
-      //attacks=new
       maxhp = 80;
-       hp = 80;
+      hp = 80;
       str = 4;
       def = .05;
       spd = 3;
