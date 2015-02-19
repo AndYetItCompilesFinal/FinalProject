@@ -3,7 +3,6 @@ public class Hades extends BadGuy
    public Hades(Room room)
    {
       this();
-      size++;
       this.room=room;
    }
    public Hades()
@@ -13,6 +12,10 @@ public class Hades extends BadGuy
       str = 4;
       def = .2;
       spd = 4;
+   }
+   public int getSize()
+   {
+      return room.getSize()+1;
    }
    public String toString(){
       return("Hades");

@@ -3,7 +3,6 @@ public class HealthPotion10 extends Potion
    public HealthPotion10(Room room)
    {
       this();
-      size++;
       this.room=room;
    }
    public HealthPotion10()
@@ -13,5 +12,9 @@ public class HealthPotion10 extends Potion
    public String toString()
    {
       return "10 HP Health Potion";
+   }
+   public int getSize()
+   {
+      return room.getSize()+1;
    }
 }

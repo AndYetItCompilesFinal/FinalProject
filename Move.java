@@ -5,9 +5,11 @@ public class Move
    int currentCol;
    Room[][] map;
     Party party;
-   public Move(Room[][] map,Party party)
+    Backpack pack;
+   public Move(Room[][] map,Party party,Backpack pack)
    {
       this.map=map;
+      this.pack=pack;
        this.party=party;
       findEntrance();//gets starting position
    }
@@ -19,7 +21,7 @@ public class Move
       {
          for(int col=0;col<map[row].length;col++)
          {
-            if(this.map[row][col].itemType().compareTo("I")==0)
+            if(this.map[row][col] instanceof Entrance)
             {
                this.currentRow=row;
                this.currentCol=col;
@@ -30,13 +32,12 @@ public class Move
        
    public void executeRoom()
    {
-      String temp;
       int choice;
       Scanner kb=new Scanner(System.in);
-      for(int i=0;i<map[currentRow][currentCol].items.size();i++)
+      System.out.println(map[currentRow][currentCol].getDescription());
+      for(int i=0;i<map[currentRow][currentCol].getSize();i++)
       {
-         temp=(String)map[currentRow][currentCol].items.get(i);
-         if(temp.equals("H"))
+         if(map[currentRow][currentCol] instanceof Potion)
          {
             do{
                System.out.println("You have found a health potion");
@@ -68,13 +69,14 @@ public class Move
                case 2:
                   //new health potion
                   //backpack.add(health potion);
+                  pack.list.add((Potion)map[currentRow][currentCol]);
                   break;
                default:
                   kb.nextLine();
             }//end of switch
          
          }//end of if
-         if(temp.equals("W"))
+         if(map[currentRow][currentCol] instanceof Weapon)
          {
             System.out.println("You have found a weapon");
             do{
@@ -102,23 +104,19 @@ public class Move
                      //new weapon
                      //backpack.add(weapon)
                      //delete weapon from room
-                  map[currentRow][currentCol].items.remove("W");
-                  if(map[currentRow][currentCol].items.size()==0)
-                  {
-                     map[currentRow][currentCol].items.add("E");
-                  }
+                     pack.list.add((Weapon)map[currentRow][currentCol]);
                   break;
                default:
                   kb.nextLine();
             }//end of switch
          }//end of if
-         if(temp.equals("B"))
+         if(map[currentRow][currentCol] instanceof BadGuy)
          {
              System.out.println("There is a bad guy in the room!!");
              BadGuy b = new Maleficent();
              BattlePhase.startBattle(party, b);
          }
-         if(temp.equals("E"))
+         if(map[currentRow][currentCol] instanceof Empty)
          {
             System.out.println("This room is empty");
          }

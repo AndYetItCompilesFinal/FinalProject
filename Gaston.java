@@ -3,7 +3,6 @@ public class Gaston extends BadGuy
    public Gaston(Room room)
    {
       this();
-      size++;
       this.room=room;
    }
    public Gaston()
@@ -13,6 +12,10 @@ public class Gaston extends BadGuy
       str = 4;
       def = .05;
       spd = 3;
+   }
+   public int getSize()
+   {
+      return room.getSize()+1;
    }
    
    public String toString()

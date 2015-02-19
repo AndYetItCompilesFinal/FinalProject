@@ -3,7 +3,6 @@ public class Maleficent extends BadGuy
    public Maleficent(Room room)
    {
       this();
-      size++;
       this.room=room;
    }
    public Maleficent()
@@ -13,6 +12,10 @@ public class Maleficent extends BadGuy
       str = 5;
       def = .20;
       spd = 4;
+   }
+   public int getSize()
+   {
+      return room.getSize()+1;
    }
    
    public String toString()

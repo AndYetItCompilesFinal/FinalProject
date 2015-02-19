@@ -3,7 +3,6 @@ public class MaxHealthPotion extends Potion
    public MaxHealthPotion(Room room)
    {
       this();
-      size++;
       this.room=room;
    }
    public MaxHealthPotion()
@@ -14,5 +13,8 @@ public class MaxHealthPotion extends Potion
    {
       return "Max Heath Potion";
    }
-
+   public int getSize()
+   {
+      return room.getSize()+1;
+   }
 }

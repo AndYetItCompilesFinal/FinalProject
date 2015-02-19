@@ -5,7 +5,6 @@ public class Level3Weapon extends Weapon
    {
       this();
       this.room=room;
-      size++;
    }
    public Level3Weapon()
    {
@@ -15,6 +14,10 @@ public class Level3Weapon extends Weapon
    {
       return "Level 3 Weapon";
    
+   }
+   public int getSize()
+   {
+      return room.getSize()+1;
    }
 
 }//end of class
